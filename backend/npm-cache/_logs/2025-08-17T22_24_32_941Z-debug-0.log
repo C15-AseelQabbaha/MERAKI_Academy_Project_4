@@ -10,3 +10,4 @@
 9 verbose logfile logs-max:10 dir:D:\MERAKI_Academy\Projects\MERAKI_Academy_Project_4\backend\npm-cache\_logs\2025-08-17T22_24_32_941Z-
 10 verbose logfile D:\MERAKI_Academy\Projects\MERAKI_Academy_Project_4\backend\npm-cache\_logs\2025-08-17T22_24_32_941Z-debug-0.log
 11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/npm 2971ms
