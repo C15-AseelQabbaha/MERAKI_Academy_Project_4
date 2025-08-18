@@ -13,7 +13,7 @@ await newRole.save()
 res.status(201).json(newRole)
 
 }catch(err){
-    res.status(500).json({message:"error creating role",error:error.message})
+    res.status(500).json({message:"error creating role",error:err.message})
 }
 
 
