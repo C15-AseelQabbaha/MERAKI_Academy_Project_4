@@ -58,6 +58,10 @@ if(!review){
     return res.status(404).json("Review not found")
 
 }
+if(review.user.toString()!==req.user.userId && req.user.role!=="Admin"){
+    return res.status(403).json({message:"Not authorized"})
+}
+
 
 await reviewModel.findByIdAndDelete(req.params.id )
 
