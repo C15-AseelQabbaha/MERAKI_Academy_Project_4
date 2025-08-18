@@ -1,4 +1,10 @@
+const bcrypt=require("bcryptjs")
+
+
+
+
 const userModel=require("../models/userSchema")
+
 //get all user
 
 const getAllUser=async(req,res)=>{
@@ -34,20 +40,50 @@ else{
 
 }
 
-// create new user
+// update user
 
 
-const createNewUser=async(req,res)=>{
+const updateUser=async(req,res)=>{
 
 try{
-const {name,email,password,age,skinTyp,createdAt,role}=req.body
-const newUser=new userModel({name,email,password,age,skinType,createdAt,role})
+const updateUser= await userModel.findByIdAndUpdate(req.params.id,req.body)
 
-newUser.save()
-res.status(201).json({ message: "User created" });
+if(!updateUser){
+    return res.status(404).json({ message: "User not found" });
+}
+else{
+   return res.json({updateUser})  
+}
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({message:"error update" ,error: err.message });
   }
 
 }
-module.exports={getAllUser,getUserById,createNewUser}
+
+
+
+
+//delete user
+const deleteUser=async(req,res)=>{
+
+try{
+const deleteUser= await userModel.findByIdAndDelete(req.params.id)
+
+if(!deleteUser){
+    return res.status(404).json({ message: "User not found" });
+}
+else{
+   return res.json("user deleted")  
+}
+  } catch (err) {
+    res.status(500).json({message:"error deleting" ,error: err.message });
+  }
+
+}
+
+
+
+
+
+
+module.exports={getAllUser,getUserById,updateUser,deleteUser}

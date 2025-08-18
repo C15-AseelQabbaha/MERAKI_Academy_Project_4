@@ -1,9 +1,9 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose")
 
-const routineSchema=new mongoose.Schema({
-    userId:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
-    morning:[{type:mongoose.Schema.Types.ObjectId,ref:"Product"}],
-    evening:[{type:mongoose.Schema.Types.ObjectId,ref:"Product"}],
+const routineSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    products: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
+    steps: [String]
 })
 
-module.exports=mongoose.model("Routine",routineSchema)
+module.exports = mongoose.model("Routine", routineSchema)
