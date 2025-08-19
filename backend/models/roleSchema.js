@@ -1,13 +1,8 @@
 const mongoose=require("mongoose")
 
 const roleSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        enum:["Admin","User","Editor"],
-        require:true,
-        unique:true
-    },
-    description:{type:String}
+  role:{type:String,require:true,unique:true},
+  permissions:[{type:String}]
 })
 
 

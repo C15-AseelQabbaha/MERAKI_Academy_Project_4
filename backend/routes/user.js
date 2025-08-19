@@ -4,9 +4,13 @@ const userRouter=require("../controllers/user")
 const authentication=require("../middleware/authentication")
 const authorization=require("../middleware/authorization")
 
+const{getAllUser,getUserById,updateUser,deleteUser}=require("../controllers/user")
+router.get("/",authentication,authorization(["Admin"]),getAllUser)
 
-router.get("/",authentication,authorization(["Admin"]),userRouter.getAllUser)
+router.get("/:id",authentication,authorization(["Admin","user"]),getUserById)
 
-router.get("/:id",authentication,authorization(["Admin","user"]),userRouter.getUserById)
+router.put("/:id",authentication,authorization(["Admin"]),updateUser)
 
-router.post("/",userRouter.crea)
+router.delete("/:id",authentication,authorization(["Admin"]),deleteUser)
+
+module.exports=router

@@ -35,4 +35,42 @@ res.status(500).json({message:"error fetching role",error:error.message})
 
 }
 
+const updateRole=async (req,res)=>{
+
+try{
+const {id}=req.params
+const{name}=req.body
+
+
+const updateRole=await roleModel.findByIdAndUpdate(
+    id,{name},{new:true}
+)
+
+if(!updateRole){
+    return res.status(404).json({message:"role not found"})
+}
+
+
+
+
+
+
+}catch(err){}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports={createRole,getAllRole}

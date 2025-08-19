@@ -26,14 +26,6 @@ app.use("/review",reviewRouter)
 app.use("/routine",routineRouter)
 
 
-
-
-
-
-
-
-
-
 app.use(cors());
 app.use(express.json());
 
