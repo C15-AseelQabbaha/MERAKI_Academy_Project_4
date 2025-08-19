@@ -45,7 +45,7 @@ const login=async (req,res)=>{
 
 const {email,password}=req.body
 
-const user=await   new userModel.findOne({email}).populate("role")
+const user=await new userModel.findOne({email}).populate("role")
 if(!user){
     return res.status(404).json("user not found")
 }
@@ -56,9 +56,8 @@ if(!isMatch){
     return res.status(400).json("invalid password")
 }
 const payload={
-id:1,
-name:"user",
- Permissions:""
+userId:user.id,
+role:user.role.role
 
 }
 const option={
@@ -66,8 +65,15 @@ const option={
 }
 const token=jwt.sign(payload,process.env.SECRET,option)
 res.status(200).json({
+    success:true,
     message:"login successful",
-    token
+    token,
+    user:{
+name:user.name,
+email:user.email,
+role:user.role.role
+
+    }
 })
 
 }
