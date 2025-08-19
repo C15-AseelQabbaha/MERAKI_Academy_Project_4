@@ -3,14 +3,14 @@ const router=express.Router()
 const authentication=require("../middleware/authentication")
 const authorization=require("../middleware/authorization")
 
-const{getAllProduct,g}=require("../controllers/product")
-router.get("/",ge)
+const{getAllProduct,getProductById,createProduct,updateProduct,deleteProduct}=require("../controllers/product")
+router.get("/",getAllProduct)
 
-router.get("/:id",getUserById)
+router.get("/:id",getProductById)
 
-router.post("/",authentication,authorization(["Admin","user"]),createArticle)
+router.post("/",authentication,authorization(["Admin"]),createProduct)
 
-router.put("/:id",authentication,authorization(["Admin","user"]),updateArticle)
+router.put("/:id",authentication,authorization(["Admin"]),updateProduct)
 
-router.delete("/:id",authentication,authorization(["Admin"]),deleteArticle)
+router.delete("/:id",authentication,authorization(["Admin"]),deleteProduct)
 module.exports=router

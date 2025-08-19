@@ -17,6 +17,10 @@ const productRouter=require("./routes/product")
 const articleRouter=require("./routes/article")
 const reviewRouter=require("./routes/review")
 const routineRouter=require("./routes/routine")
+const authentication=require("./middleware/authentication")
+
+
+
 
 app.use("/users",userRouter)
 app.use("/role",roleRouter)
