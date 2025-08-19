@@ -1,11 +1,37 @@
 const express = require("express");
 const cors = require("cors");
 
+const mongoose=require("mongoose")
+const dotenv=require("dotenv")
+
+
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 require("dotenv").config()
 
 const db=require("./models/db")
+const userRouter=require("./routes/user")
+const roleRouter=require("./routes/role")
+const productRouter=require("./routes/product")
+const articleRouter=require("./routes/article")
+const reviewRouter=require("./routes/review")
+const routineRouter=require("./routes/routine")
+
+app.use("/users",userRouter)
+app.use("/role",roleRouter)
+app.use("/product",productRouter)
+app.use("/article",articleRouter)
+app.use("/review",reviewRouter)
+app.use("/routine",routineRouter)
+
+
+
+
+
+
+
+
 
 
 app.use(cors());
