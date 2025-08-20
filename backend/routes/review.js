@@ -8,5 +8,5 @@ router.get("/:productId", getReviewForProduct)
 
 router.post("/:productId", authentication, authorization(["Admin", "user"]), createReview)
 
-router.delete("/:id", authentication, authorization(["Admin", "user"]), deleteProduct)
+router.delete("/:id", authentication, authorization(["Admin", "user"]), deleteReview)
 module.exports = router

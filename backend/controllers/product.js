@@ -1,38 +1,38 @@
-const productModel=require("../models/productsSchema")
+const productModel = require("../models/productsSchema")
 
 
 //get all product
 
-const getAllProduct=async (req,res)=>{
+const getAllProduct = async (req, res) => {
 
-try{
-const getProduct=await productModel.find()
+  try {
+    const getProduct = await productModel.find()
 
-res.status(201).json(getAllProduct)
+    res.status(201).json(getAllProduct)
 
 
 
-}catch(err){
-     res.status(500).json({message:"error fetching product",success:false,error:err.message})
-}
+  } catch (err) {
+    res.status(500).json({ message: "error fetching product", success: false, error: err.message })
+  }
 
 
 }
 
 //get product by id
 
-const getProductById=async (req,res)=>{
+const getProductById = async (req, res) => {
 
-try{
-const getProductById=await productModel.findById(req.params.id)
-if(!getProductById){
-    return  res.status(404).json({success:false,message:" product not found",error:err.message})
-}
- res.status(200).json({success:true,getProductById})
+  try {
+    const getProductById = await productModel.findById(req.params.id)
+    if (!getProductById) {
+      return res.status(404).json({ success: false, message: " product not found", error: err.message })
+    }
+    res.status(200).json({ success: true, getProductById })
 
-}catch(err){
-     res.status(500).json({message:"error fetching product",success:false,error:err.message})
-}
+  } catch (err) {
+    res.status(500).json({ message: "error fetching product", success: false, error: err.message })
+  }
 
 
 }
@@ -122,33 +122,9 @@ const deleteProduct = async (req, res) => {
 }
 
 module.exports = {
-  getProducts,
+  getAllProduct,
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-module.exports={createProduct,getAllProduct}

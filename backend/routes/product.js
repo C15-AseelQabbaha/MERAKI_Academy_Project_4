@@ -1,16 +1,16 @@
-const express=require("express")
-const router=express.Router()
-const authentication=require("../middleware/authentication")
-const authorization=require("../middleware/authorization")
+const express = require("express")
+const productRouter = express.Router()
+const authentication = require("../middleware/authentication")
+const authorization = require("../middleware/authorization")
 
-const{getAllProduct,getProductById,createProduct,updateProduct,deleteProduct}=require("../controllers/product")
-router.get("/",getAllProduct)
+const { getAllProduct, getProductById, createProduct, updateProduct, deleteProduct } = require("../controllers/product")
+productRouter.get("/", getAllProduct)
 
-router.get("/:id",getProductById)
+productRouter.get("/getProductById/:id", (req, res)=>{})
 
-router.post("/",authentication,authorization(["Admin"]),createProduct)
+productRouter.post("/", authentication, authorization(["Admin"]), createProduct)
 
-router.put("/:id",authentication,authorization(["Admin"]),updateProduct)
+productRouter.put("updateProduct/:id", authentication, authorization(["Admin"]), updateProduct)
 
-router.delete("/:id",authentication,authorization(["Admin"]),deleteProduct)
-module.exports=router
+productRouter.delete("/:id", authentication, authorization(["Admin"]), deleteProduct)
+module.exports = productRouter
