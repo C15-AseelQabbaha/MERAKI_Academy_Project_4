@@ -229,7 +229,7 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    // لاحقًا: addProduct, updateProduct, deleteProduct
+ 
   }
 });
 

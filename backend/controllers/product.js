@@ -8,7 +8,7 @@ const getAllProduct = async (req, res) => {
   try {
     const getProduct = await productModel.find()
 
-    res.status(201).json(getAllProduct)
+    res.status(201).json(getProduct)
 
 
 
