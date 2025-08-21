@@ -73,7 +73,7 @@ const updateProduct = async (req, res) => {
     const { id } = req.params
     const { name, brand, type, description, image, price } = req.body
 
-    const updatedProduct = await Product.findByIdAndUpdate(
+    const updatedProduct = await productModel.findByIdAndUpdate(
       id,
       { name, brand, type, description, image, price },
       { new: true }
@@ -102,7 +102,7 @@ const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params
 
-    const deletedProduct = await Product.findByIdAndDelete(id)
+    const deletedProduct = await productModel.findByIdAndDelete(id)
 
     if (!deletedProduct) {
       return res.status(404).json({ success: false, message: "Product not found" })

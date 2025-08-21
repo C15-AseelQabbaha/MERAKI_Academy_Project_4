@@ -7,3 +7,26 @@ const Footer = () => (
 );
 
 export default Footer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchProducts, selectProducts, addProduct, updateProduct, deleteProduct } from '../store/productsSlice';
+// import { Modal, Button, Form } from 'react-bootstrap';
