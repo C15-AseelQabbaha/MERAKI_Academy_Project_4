@@ -64,13 +64,4 @@ if(!updateRole){
 
 
 
-
-
-
-
-
-
-
-
-
 module.exports={createRole,getAllRole}

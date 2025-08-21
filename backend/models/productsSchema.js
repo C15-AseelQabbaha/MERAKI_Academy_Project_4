@@ -6,9 +6,9 @@ name:{type:String},
 brand:{type:String},
 type:{type:String},
 description:{type:String,enum:["mask","cleanser","moisturizer","sunblock","serum"]},
-ingredients:[{type:String}],
+ingredients:{type:String},
 price:{type:Number},
-skinTypeSuitable:[{type:String}],
+skinTypeSuitable:{type:String},
 
 image:{type:String}
 })

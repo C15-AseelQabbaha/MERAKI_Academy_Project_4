@@ -45,7 +45,7 @@ const routine= await routineModel.findById(req.params.id)
 
 
 
-const updateRoutine=routineModel.findByIdAndUpdate(
+const updateRoutine=await routineModel.findByIdAndUpdate(
     req.params.id,
     req.body
 

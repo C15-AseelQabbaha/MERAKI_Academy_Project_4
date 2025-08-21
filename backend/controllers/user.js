@@ -145,7 +145,7 @@ const login = async (req, res) => {
 
         }
         const option = {
-            expressIn: "2h"
+           " expressIn: 2h"
         }
         const token = jwt.sign(payload, process.env.SECRET, option)
         res.status(200).json({
@@ -168,8 +168,8 @@ const login = async (req, res) => {
         res.status(500).json({ message: "error logging in" })
     }
 }
-module.exports = { signUp, login }
 
 
 
-module.exports = { getAllUser, getUserById, updateUser, deleteUser }
+
+module.exports = { signUp, login,getAllUser, getUserById, updateUser, deleteUser }
