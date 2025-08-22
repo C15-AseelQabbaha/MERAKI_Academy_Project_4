@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import Products from "./pages/Products";
+import ProductsDetails from "./pages/ProductsDetails";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
@@ -21,6 +23,9 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
+
+            <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductsDetails />} />
           </Routes>
         </div>
       </Router>
