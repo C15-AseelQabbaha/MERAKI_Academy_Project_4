@@ -1,54 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const BASE_URL = "http://localhost:5000";
-
-ProductDetails=()=> {
+const ProductsDetails = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const product = useSelector((state) =>
+    state.product.products.find((p) => p.id === parseInt(id))
+  );
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await axios.get(`${BASE_URL}/product/${id}`);
-        setProduct(res.data);
-      } catch (err) {
-        setError("Error fetching product details");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProduct();
-  }, [id]);
-
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
-  if (error) return <p className="text-center text-red-500">{error}</p>;
+  if (!product) return <p>Product not found</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      {product && (
-        <div className="flex flex-col md:flex-row gap-6">
+    <div className="container mt-4">
+      <h2>{product.name}</h2>
+      <div className="row">
+        <div className="col-md-6">
           <img
-            src={product.image || "https://via.placeholder.com/400"}
+            src={product.image}
             alt={product.name}
-            className="w-full md:w-1/2 h-80 object-cover rounded-lg"
+            className="img-fluid"
           />
-          <div className="flex-1">
-            <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
-            <p className="text-xl text-green-600 mb-3">${product.price}</p>
-            <p className="text-gray-700 mb-6">{product.description}</p>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
-              Add to Cart
-            </button>
-          </div>
         </div>
-      )}
+        <div className="col-md-6">
+          <p><strong>Brand:</strong> {product.brand}</p>
+          <p><strong>Price:</strong> ${product.price}</p>
+          <p><strong>Type:</strong> {product.description}</p>
+          <p><strong>Skin Suitable:</strong> {product.skinTypeSuitable.join(", ")}</p>
+          <p><strong>Ingredients:</strong> {product.ingredients.join(", ")}</p>
+          <Link to="/products" className="btn btn-secondary mt-3">
+            Back to Products
+          </Link>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-
-export default ProductDetails
+export default ProductsDetails;

@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const BASE_URL = "http://localhost:5000";
-const productSlice = createSlice({
-  name: "products",
-  initialState: {
-    items: [
-       {_id: "1", name: "Hydrating Face Mask", brand: "GlowSkin", type: "mask", description: "Hydrating and soothing face mask", price: 15, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["dry", "normal"]},
+
+const initialState = {
+  products: [
+      {_id: "1", name: "Hydrating Face Mask", brand: "GlowSkin", type: "mask", description: "Hydrating and soothing face mask", price: 15, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["dry", "normal"]},
     {_id: "2", name: "Oil Control Cleanser", brand: "FreshFace", type: "cleanser", description: "Reduces excess oil and cleans pores", price: 12, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily", "combination"]},
     {_id: "3", name: "Daily Moisturizer SPF30", brand: "SunGuard", type: "moisturizer", description: "Lightweight moisturizer with SPF protection", price: 20, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
     {_id: "4", name: "Vitamin C Serum", brand: "BrightSkin", type: "serum", description: "Brightens skin and reduces dark spots", price: 25, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
@@ -35,11 +34,22 @@ const productSlice = createSlice({
     {_id: "28", name: "Exfoliating Face Mask", brand: "GlowSkin", type: "mask", description: "Removes dead skin gently", price: 20, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
     {_id: "29", name: "Repairing Night Serum", brand: "NatureCare", type: "serum", description: "Repairs and regenerates skin overnight", price: 32, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
     {_id: "30", name: "Daily Cleanser", brand: "FreshFace", type: "cleanser", description: "For all skin types, daily use", price: 12, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-    ],
-      loading: false,
-  error: null,
+
+]
+}
+
+
+
+const productSlice = createSlice({
+  name: "product",
+  initialState,
+  reducers: {
+    getProducts: (state) => state.products,
   },
-  reducers: {},
 });
 
+export const { getProducts } = productSlice.actions;
 export default productSlice.reducer;
+
+
+       

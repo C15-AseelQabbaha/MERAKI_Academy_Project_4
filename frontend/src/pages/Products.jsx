@@ -1,32 +1,37 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../redux/productSlice";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Products = () => {
-  const dispatch = useDispatch();
-  const { items, loading, error } = useSelector((state) => state.products);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  if (loading) return <p>Loading products...</p>;
-  if (error) return <p className="text-danger">{error}</p>;
+  const products = useSelector((state) => state.product.products);
 
   return (
     <div className="container mt-4">
       <h2>All Products</h2>
       <div className="row">
-        {items.map((p) => (
-          <div key={p._id} className="col-md-4 mb-4">
+        {products.map((product) => (
+          <div key={product.id} className="col-md-4 mb-4">
             <div className="card h-100">
-              <img src={p.image} className="card-img-top" alt={p.name} />
+              <img
+                src={product.image}
+                className="card-img-top"
+                alt={product.name}
+                style={{ height: "200px", objectFit: "cover" }}
+              />
               <div className="card-body">
-                <h5 className="card-title">{p.name}</h5>
-                <p className="card-text">{p.description}</p>
-                <p className="card-text"><strong>${p.price}</strong></p>
-                <Link to={`/products/${p._id}`} className="btn btn-primary">
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text">{product.brand}</p>
+                <p className="card-text">${product.price}</p>
+                <p className="card-text">
+                  Type: <strong>{product.description}</strong>
+                </p>
+                <p className="card-text">
+                  Skin Suitable: {product.skinTypeSuitable.join(", ")}
+                </p>
+                <Link
+                  to={`/product/${product.id}`}
+                  className="btn btn-primary mt-2"
+                >
                   View Details
                 </Link>
               </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../redux/authSlice";
+import { registerUser } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
