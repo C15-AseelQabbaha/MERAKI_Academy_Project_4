@@ -10,7 +10,7 @@ import { store } from "./redux/store";
 
 function App() {
   return (
-    <Provider store={store}>
+    
       <Router>
         <div className="App">
           <h1>Skin Care</h1>
@@ -29,7 +29,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-    </Provider>
+  
   );
 }
 
