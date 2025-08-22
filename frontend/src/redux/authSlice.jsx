@@ -58,3 +58,6 @@ const authSlice = createSlice({
       });
   },
 });
+
+export const { addProduct, removeProduct } = authSlice.actions;
+export default authSlice.reducer;

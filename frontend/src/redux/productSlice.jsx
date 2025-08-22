@@ -1,238 +1,45 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  products: [
-    {
-      id: "1",
-      name: "Hydrating Cream",
-      brand: "GlowSkin",
-      type: "daily",
-      description: "moisturizer",
-      ingredients: ["Water", "Glycerin", "Vitamin E"],
-      price: 25.99,
-      skinTypeSuitable: ["dry", "normal"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "2",
-      name: "Vitamin C Serum",
-      brand: "BrightSkin",
-      type: "treatment",
-      description: "serum",
-      ingredients: ["Vitamin C", "Hyaluronic Acid"],
-      price: 30.50,
-      skinTypeSuitable: ["all"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "3",
-      name: "Gentle Cleanser",
-      brand: "PureCare",
-      type: "daily",
-      description: "cleanser",
-      ingredients: ["Aloe Vera", "Chamomile Extract"],
-      price: 20.00,
-      skinTypeSuitable: ["sensitive", "normal"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "4",
-      name: "SPF 50 Sunblock",
-      brand: "SunGuard",
-      type: "daily",
-      description: "sunblock",
-      ingredients: ["Zinc Oxide", "Titanium Dioxide"],
-      price: 18.99,
-      skinTypeSuitable: ["all"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "5",
-      name: "Clay Mask",
-      brand: "NaturalFace",
-      type: "weekly",
-      description: "mask",
-      ingredients: ["Kaolin Clay", "Green Tea Extract"],
-      price: 22.50,
-      skinTypeSuitable: ["oily", "combination"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "6",
-      name: "Night Repair Serum",
-      brand: "GlowSkin",
-      type: "treatment",
-      description: "serum",
-      ingredients: ["Retinol", "Peptides"],
-      price: 35.00,
-      skinTypeSuitable: ["dry", "mature"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "7",
-      name: "Foaming Cleanser",
-      brand: "PureCare",
-      type: "daily",
-      description: "cleanser",
-      ingredients: ["Salicylic Acid", "Aloe Vera"],
-      price: 19.50,
-      skinTypeSuitable: ["oily", "acne-prone"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "8",
-      name: "Moisturizing Mask",
-      brand: "NaturalFace",
-      type: "weekly",
-      description: "mask",
-      ingredients: ["Honey", "Shea Butter"],
-      price: 24.00,
-      skinTypeSuitable: ["dry", "sensitive"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "9",
-      name: "Brightening Toner",
-      brand: "GlowSkin",
-      type: "daily",
-      description: "cleanser",
-      ingredients: ["Witch Hazel", "Vitamin C"],
-      price: 21.00,
-      skinTypeSuitable: ["all"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "10",
-      name: "Soothing Gel Mask",
-      brand: "NaturalFace",
-      type: "weekly",
-      description: "mask",
-      ingredients: ["Aloe Vera", "Cucumber Extract"],
-      price: 23.50,
-      skinTypeSuitable: ["sensitive", "dry"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "11",
-      name: "Oil Control Serum",
-      brand: "PureCare",
-      type: "treatment",
-      description: "serum",
-      ingredients: ["Niacinamide", "Zinc PCA"],
-      price: 29.00,
-      skinTypeSuitable: ["oily", "acne-prone"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "12",
-      name: "Daily Moisturizer SPF 30",
-      brand: "SunGuard",
-      type: "daily",
-      description: "moisturizer",
-      ingredients: ["Shea Butter", "Sunscreen"],
-      price: 27.50,
-      skinTypeSuitable: ["all"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "13",
-      name: "Calming Face Oil",
-      brand: "GlowSkin",
-      type: "night",
-      description: "moisturizer",
-      ingredients: ["Jojoba Oil", "Chamomile Extract"],
-      price: 28.50,
-      skinTypeSuitable: ["sensitive", "dry"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "14",
-      name: "Exfoliating Mask",
-      brand: "NaturalFace",
-      type: "weekly",
-      description: "mask",
-      ingredients: ["Lactic Acid", "Kaolin Clay"],
-      price: 26.00,
-      skinTypeSuitable: ["oily", "combination"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "15",
-      name: "Hydrating Serum",
-      brand: "BrightSkin",
-      type: "treatment",
-      description: "serum",
-      ingredients: ["Hyaluronic Acid", "Vitamin B5"],
-      price: 32.00,
-      skinTypeSuitable: ["dry", "normal"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "16",
-      name: "Deep Cleansing Foam",
-      brand: "PureCare",
-      type: "daily",
-      description: "cleanser",
-      ingredients: ["Charcoal", "Aloe Vera"],
-      price: 20.50,
-      skinTypeSuitable: ["oily", "acne-prone"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "17",
-      name: "Rejuvenating Night Cream",
-      brand: "GlowSkin",
-      type: "night",
-      description: "moisturizer",
-      ingredients: ["Retinol", "Vitamin E"],
-      price: 38.00,
-      skinTypeSuitable: ["mature", "dry"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "18",
-      name: "Mattifying Lotion",
-      brand: "PureCare",
-      type: "daily",
-      description: "moisturizer",
-      ingredients: ["Niacinamide", "Aloe Vera"],
-      price: 22.00,
-      skinTypeSuitable: ["oily", "combination"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "19",
-      name: "Bright Eyes Serum",
-      brand: "BrightSkin",
-      type: "treatment",
-      description: "serum",
-      ingredients: ["Caffeine", "Hyaluronic Acid"],
-      price: 34.00,
-      skinTypeSuitable: ["all"],
-      image: "https://via.placeholder.com/300x200"
-    },
-    {
-      id: "20",
-      name: "Ultra Hydrating Mask",
-      brand: "NaturalFace",
-      type: "weekly",
-      description: "mask",
-      ingredients: ["Shea Butter", "Honey", "Aloe Vera"],
-      price: 29.50,
-      skinTypeSuitable: ["dry", "sensitive"],
-      image: "https://via.placeholder.com/300x200"
-    }
-  ]
-};
-
-const productsSlice = createSlice({
-  name: 'products',
-  initialState,
-  reducers: {
- 
-  }
+const BASE_URL = "http://localhost:5000";
+const productSlice = createSlice({
+  name: "products",
+  initialState: {
+    items: [
+       {_id: "1", name: "Hydrating Face Mask", brand: "GlowSkin", type: "mask", description: "Hydrating and soothing face mask", price: 15, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["dry", "normal"]},
+    {_id: "2", name: "Oil Control Cleanser", brand: "FreshFace", type: "cleanser", description: "Reduces excess oil and cleans pores", price: 12, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily", "combination"]},
+    {_id: "3", name: "Daily Moisturizer SPF30", brand: "SunGuard", type: "moisturizer", description: "Lightweight moisturizer with SPF protection", price: 20, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "4", name: "Vitamin C Serum", brand: "BrightSkin", type: "serum", description: "Brightens skin and reduces dark spots", price: 25, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "5", name: "Soothing Aloe Gel", brand: "NatureCare", type: "moisturizer", description: "Calms irritated skin", price: 10, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["sensitive"]},
+    {_id: "6", name: "Exfoliating Scrub", brand: "FreshFace", type: "cleanser", description: "Removes dead skin cells gently", price: 18, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "7", name: "Deep Cleansing Mask", brand: "GlowSkin", type: "mask", description: "Detoxifies and tightens pores", price: 22, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily"]},
+    {_id: "8", name: "Night Repair Serum", brand: "BrightSkin", type: "serum", description: "Repairs skin overnight", price: 30, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "9", name: "Matte Finish Moisturizer", brand: "FreshFace", type: "moisturizer", description: "Controls shine for oily skin", price: 19, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily"]},
+    {_id: "10", name: "Hydrating Cleanser", brand: "NatureCare", type: "cleanser", description: "Gentle cleanser for dry skin", price: 14, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["dry"]},
+    {_id: "11", name: "SPF50 Sunblock", brand: "SunGuard", type: "sunblock", description: "High protection against UV rays", price: 28, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "12", name: "Calming Face Mask", brand: "NatureCare", type: "mask", description: "Reduces redness and irritation", price: 21, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["sensitive"]},
+    {_id: "13", name: "Brightening Cleanser", brand: "GlowSkin", type: "cleanser", description: "Removes dullness and impurities", price: 17, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "14", name: "Anti-Aging Serum", brand: "BrightSkin", type: "serum", description: "Reduces fine lines and wrinkles", price: 35, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "15", name: "Daily Moisturizer", brand: "FreshFace", type: "moisturizer", description: "Keeps skin hydrated all day", price: 16, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["normal", "dry"]},
+    {_id: "16", name: "Clay Mask", brand: "GlowSkin", type: "mask", description: "Absorbs excess oil and impurities", price: 23, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily", "combination"]},
+    {_id: "17", name: "Soothing Serum", brand: "NatureCare", type: "serum", description: "Calms sensitive skin", price: 27, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["sensitive"]},
+    {_id: "18", name: "Gentle Cleanser", brand: "FreshFace", type: "cleanser", description: "Suitable for daily use", price: 13, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "19", name: "Night Moisturizer", brand: "BrightSkin", type: "moisturizer", description: "Hydrates and repairs skin overnight", price: 24, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "20", name: "SPF30 Daily Sunblock", brand: "SunGuard", type: "sunblock", description: "Lightweight daily protection", price: 20, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "21", name: "Vitamin E Serum", brand: "BrightSkin", type: "serum", description: "Nourishes and protects skin", price: 26, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "22", name: "Purifying Clay Cleanser", brand: "GlowSkin", type: "cleanser", description: "Removes impurities and oil", price: 18, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily"]},
+    {_id: "23", name: "Revitalizing Face Mask", brand: "FreshFace", type: "mask", description: "Refreshes and energizes skin", price: 22, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["normal"]},
+    {_id: "24", name: "Hydrating Serum", brand: "NatureCare", type: "serum", description: "Deep hydration for dry skin", price: 28, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["dry"]},
+    {_id: "25", name: "Matte Face Powder", brand: "GlowSkin", type: "moisturizer", description: "Controls shine and hydrates lightly", price: 15, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily"]},
+    {_id: "26", name: "Soothing Cleanser", brand: "FreshFace", type: "cleanser", description: "Gentle on sensitive skin", price: 14, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["sensitive"]},
+    {_id: "27", name: "Brightening Moisturizer", brand: "BrightSkin", type: "moisturizer", description: "Evens skin tone", price: 21, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "28", name: "Exfoliating Face Mask", brand: "GlowSkin", type: "mask", description: "Removes dead skin gently", price: 20, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "29", name: "Repairing Night Serum", brand: "NatureCare", type: "serum", description: "Repairs and regenerates skin overnight", price: 32, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    {_id: "30", name: "Daily Cleanser", brand: "FreshFace", type: "cleanser", description: "For all skin types, daily use", price: 12, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
+    ],
+      loading: false,
+  error: null,
+  },
+  reducers: {},
 });
 
-export const selectProducts = state => state.products.products;
-export default productsSlice.reducer;
-
+export default productSlice.reducer;
