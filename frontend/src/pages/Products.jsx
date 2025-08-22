@@ -25,7 +25,7 @@ if (!products || products.length === 0) return <p>No products available</p>;
                 <p className="card-text">brand:{product.brand}</p>
                 <p className="card-text">price:${product.price}</p>
                 <p className="card-text">
-                  Type: <strong>{product.description}</strong>
+                  Description:<strong>{product.description}</strong>
                 </p>
                 <p className="card-text">
                   Skin Suitable: {product.skinTypeSuitable.join(", ")}
