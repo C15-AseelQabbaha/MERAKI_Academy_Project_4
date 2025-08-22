@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import Navbar from "./components/sharedComponents/Navbar";
+import Footer from "./components/sharedComponents/Footer";
+
 import Products from "./pages/Products";
 import ProductsDetails from "./pages/ProductsDetails";
 import { Provider } from "react-redux";
@@ -12,11 +15,11 @@ function App() {
   return (
     
       <Router>
+        <Navbar/>
         <div className="App">
-          <h1>Skin Care</h1>
+          <h1></h1>
           <nav>
-            <Link to="/signup" className="btn btn-primary m-2">SignUp</Link>
-            <Link to="/login" className="btn btn-secondary m-2">Login</Link>
+            
           </nav>
 
           <Routes>
@@ -28,6 +31,7 @@ function App() {
         <Route path="/products/:id" element={<ProductsDetails />} />
           </Routes>
         </div>
+        <Footer/>
       </Router>
   
   );
