@@ -9,10 +9,11 @@
 
 
 .navbar-brand {
-  font-size: 40px;
+  font-size: 22px;
   font-weight: bold;
-  color: #333;
+  color: #241e1e;
   text-decoration: none;
+  padding-bottom: 20px;
 }
 
 
@@ -30,3 +31,4 @@
 
 .nav-links a:hover {
   color: #007bff; }
+

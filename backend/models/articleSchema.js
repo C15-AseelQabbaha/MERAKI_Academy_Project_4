@@ -2,8 +2,8 @@ const mongoose = require("mongoose")
 
 
 const articleSchema = new mongoose.Schema({
-    title: { type: String, require: true },
-    content: { type: String, require: true },
+    title: { type: String, required: true },
+    content: { type: String, required: true },
     authorId: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 
 

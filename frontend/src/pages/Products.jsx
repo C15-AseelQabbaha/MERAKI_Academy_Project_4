@@ -12,8 +12,8 @@ if (!products || products.length === 0) return <p>No products available</p>;
       <h2>All Products</h2>
       <div className="row">
         {products.map((product) => (
-          <div key={product.id} className="col-md-4 mb-4">
-            <div className="card h-100">
+          <div key={product.id} className="col-md-3 mb-3">
+            <div className="card h-70">
               <img
                 src={product.image}
                 className="card-img-top"
@@ -22,8 +22,8 @@ if (!products || products.length === 0) return <p>No products available</p>;
               />
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">{product.brand}</p>
-                <p className="card-text">${product.price}</p>
+                <p className="card-text">brand:{product.brand}</p>
+                <p className="card-text">price:${product.price}</p>
                 <p className="card-text">
                   Type: <strong>{product.description}</strong>
                 </p>

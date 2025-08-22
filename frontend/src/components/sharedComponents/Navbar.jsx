@@ -8,6 +8,7 @@ const Navbar = () => {
         <Link className="navbar-brand" to="/">
           Skin Care
         </Link>
+    
         <button
           className="navbar-toggler"
           type="button"
@@ -55,6 +56,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+       
     </nav>
   );
 };
