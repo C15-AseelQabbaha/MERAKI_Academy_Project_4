@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import "./Home.css"
 const BASE_URL = "http://localhost:5000";
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -29,7 +29,27 @@ const Home = () => {
   if (error) return <p className="text-danger">{error}</p>;
 
   return (
+
+
+
+
+
+
+    
     <div className="container mt-4">
+<div className="my-home">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6l5kqNNfH97rXsuvnJtULBkFnqNxLv5Ue3Q&s"
+        alt="Landing"
+        className="home-image"
+     
+      />
+    </div>
+
+
+
+
+
       <h2>All Products</h2>
       <div className="row">
         {products.map((product) => (

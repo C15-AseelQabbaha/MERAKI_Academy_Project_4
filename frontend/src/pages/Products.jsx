@@ -8,6 +8,7 @@ const Products = () => {
 if (!products || products.length === 0) return <p>No products available</p>;
   return (
     <div className="container mt-4">
+       
       <h2>All Products</h2>
       <div className="row">
         {products.map((product) => (
