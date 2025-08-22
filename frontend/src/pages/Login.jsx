@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error, user } = useSelector((state) => state.auth);
+  const { loading, error } = useSelector((state) => state.auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,16 +22,10 @@ const Login = () => {
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="email" placeholder="Email"className="form-control mb-2" value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"placeholder="Password" className="form-control mb-2" value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <input type="email" placeholder="Email" className="form-control mb-2"
+          value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input type="password" placeholder="Password" className="form-control mb-2"
+          value={password} onChange={(e) => setPassword(e.target.value)} required />
         <button className="btn btn-primary w-100" disabled={loading}>
           {loading ? "Loading..." : "Login"}
         </button>

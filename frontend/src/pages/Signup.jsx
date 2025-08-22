@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     age: "",
-    skinType: "normal",
+    skinType: "",
   });
 
   const { loading, error } = useSelector((state) => state.auth);
@@ -32,48 +32,18 @@ const SignUp = () => {
     <div className="container mt-5" style={{ maxWidth: "500px" }}>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          name="name"
-          className="form-control mb-2"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          className="form-control mb-2"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          className="form-control mb-2"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Age"
-          name="age"
-          className="form-control mb-2"
-          value={formData.age}
-          onChange={handleChange}
-          required
-        />
-        <select
-          name="skinType"
-          className="form-control mb-2"
-          value={formData.skinType}
-          onChange={handleChange}
-        >
+        <input type="text" name="name" placeholder="Name" className="form-control mb-2"
+          value={formData.name} onChange={handleChange} required />
+        <input type="email" name="email" placeholder="Email" className="form-control mb-2"
+          value={formData.email} onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Password" className="form-control mb-2"
+          value={formData.password} onChange={handleChange} required />
+        <input type="number" name="age" placeholder="Age" className="form-control mb-2"
+          value={formData.age} onChange={handleChange} required />
+        <select name="skinType" className="form-control mb-2" value={formData.skinType}  onChange={handleChange}>
+           <option value="" disabled  className="form-control mb-2">
+    Select Your Skin Type
+  </option>
           <option value="normal">Normal</option>
           <option value="oily">Oily</option>
           <option value="dry">Dry</option>
@@ -89,4 +59,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

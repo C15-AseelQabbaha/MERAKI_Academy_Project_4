@@ -37,14 +37,14 @@ const Home = () => {
 
     
     <div className="container mt-4">
-<div className="my-home">
+{/* <div className="my-home">
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6l5kqNNfH97rXsuvnJtULBkFnqNxLv5Ue3Q&s"
         alt="Landing"
         className="home-image"
      
       />
-    </div>
+    </div> */}
 
 
 

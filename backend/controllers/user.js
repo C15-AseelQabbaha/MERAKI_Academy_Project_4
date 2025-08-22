@@ -82,94 +82,102 @@ const deleteUser = async (req, res) => {
   }
 
 }
+//
+const registerUser = async (req, res) => {
+  try {
+    const { name, email, password, age, skinType } = req.body;
 
-
-
-
-const signUp = async (req, res) => {
-    try {
-        const { name, email, password, age, skinType, role } = req.body
-        const existingUser = await userModel.findOne({ email })
-
-        if (existingUser) {
-            return res.status(400).json({ success: false, message: "Email already exist" })
-        }
-
-        // create new user
-
-        const newUser = new userModel({ name, email, password, age, skinType, role })
-
-        await newUser.save()
-
-        res.status(201).json({
-            success: true,
-            message: "registreted successfully",
-            user: {
-                name: newUser.name,
-                email: newUser.email,
-                role: newUser.role
-            }
-
-        })
-
-    } catch (err) {
-
-        res.status(500).json({ success: false, message: "error logging in", error: err.message })
+    
+    const existingUser = await userModel.findOne({ email: email.toLowerCase() });
+    if (existingUser) {
+      return res.status(400).json({ success: false, message: "Email already exists" });
     }
 
+    
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new userModel({
+      name,
+      email: email.toLowerCase(),
+      password: hashedPassword,
+      age,
+      skinType
+    });
+
+    await newUser.save();
+
+    
+    const token = jwt.sign(
+      { userId: newUser._id },
+      process.env.SECRET,
+      { expiresIn: "2h" }
+    );
+
+    res.status(201).json({
+      success: true,
+      message: "Registered successfully",
+      user: {
+        name: newUser.name,
+        email: newUser.email,
+        skinType: newUser.skinType,
+        age: newUser.age
+      },
+      token
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ success: false, message: "Signup failed", error: err.message });
+  }
+};
 
 
 
-}
+
+
+
 
 
 // login fun
-const login = async (req, res) => {
 
-    try {
-        const { email, password } = req.body
 
-        const user = await new userModel.findOne({ email }).populate("role")
-        if (!user) {
-            return res.status(404).json("user not found")
-        }
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-        const isMatch = await bcrypt.compare(password, user.password)
-
-        if (!isMatch) {
-            return res.status(400).json("invalid password")
-        }
-        const payload = {
-            userId: user.id,
-            role: user.role.role
-
-        }
-        const option = {
-           " expressIn: 2h"
-        }
-        const token = jwt.sign(payload, process.env.SECRET, option)
-        res.status(200).json({
-            success: true,
-            message: "login successful",
-            token,
-            user: {
-                name: user.name,
-                email: user.email,
-                role: user.role.role
-
-            }
-        })
-
+    
+    const user = await userModel.findOne({ email: email.toLowerCase() });
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
     }
 
-
-    catch (err) {
-
-        res.status(500).json({ message: "error logging in" })
+   
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ success: false, message: "Invalid password" });
     }
-}
+
+   
+    const token = jwt.sign(
+      { userId: user._id },
+      process.env.SECRET,
+      { expiresIn: "2h" }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Login successful",
+      user: {
+        name: user.name,
+        email: user.email,
+        skinType: user.skinType,
+        age: user.age
+      },
+      token
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Login failed", error: err.message });
+  }
+};
 
 
 
-
-module.exports = { signUp, login,getAllUser, getUserById, updateUser, deleteUser }
+module.exports = { loginUser, registerUser,getAllUser, getUserById, updateUser, deleteUser }
