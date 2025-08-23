@@ -34,7 +34,7 @@ const Products = () => {
                 <p className="card-text"><strong>Brand:</strong> {product.brand}</p>
                 <p className="card-text"><strong>Price:</strong> ${product.price}</p>
                 <p className="card-text">
-                  Type: <strong>{product.description}</strong>
+                  Description: <strong>{product.description}</strong>
                 </p>
                 <p className="card-text">
                   Skin Suitable: {product.skinTypeSuitable.join(", ")}

@@ -26,8 +26,8 @@ const ProductsDetails = () => {
           <p><strong>Price:</strong> ${product.price}</p>
           <p><strong>Type:</strong> {product.description}</p>
           <p><strong>Skin Suitable:</strong> {product.skinTypeSuitable.join(", ")}</p>
-          <p><strong>Ingredients:</strong> {product.ingredients.join(", ")}</p>
-          <Link to="/products" className="btn btn-secondary mt-3">
+          <p><strong>Ingredients:</strong> {product.ingredients?.join(", ")}</p>
+          <Link to="/products" className="btn btn-secondary mt-3"> 
             Back to Products
           </Link>
         </div>
