@@ -12,3 +12,46 @@
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+.home-container {
+  height: 100vh;  
+  background-image: url("https://live-production.wcms.abc-cdn.net.au/48bb5bb6334bb1b9ce2947613945e188?impolicy=wcms_crop_resize&cropH=968&cropW=1720&xPos=0&yPos=55&width=862&height=485");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.search-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 350px;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-form button:hover {
+  background: #ff4c4c;
+}

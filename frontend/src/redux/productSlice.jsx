@@ -6,7 +6,7 @@ const initialState = {
   products: [
       {_id: "1", name: "Hydrating Face Mask", brand: "GlowSkin", type: "mask", description: "Hydrating and soothing face mask", price: 10, image: "https://neutriherbs.ng/cdn/shop/files/Hyaluronicacidmask-4.jpg?v=1711391015", skinTypeSuitable: ["dry", "normal"]},
     {_id: "2", name: "Oil Control Cleanser", brand: "ceraVe", type: "cleanser", description: "Reduces excess oil and cleans pores", price: 12, image: "https://static.sweetcare.com/img/prd/488/v-638200520064264091/cerave-007772ve_01.webp", skinTypeSuitable: ["oily", "combination"]},
-    {_id: "3", name: "Daily Moisturizer SPF30", brand: "AVeeno", type: "moisturizer", description: "Lightweight moisturizer with SPF protection", price: 20, image: "https://images.ctfassets.net/mgaihfszrtka/vvr0wk0hI5gQcJQVjOKSP/50402247b305461b20434bab7922cc76/3oz_oobwb-min-en-us", skinTypeSuitable: ["all"]},
+    {_id: "3", name: "Daily Moisturizer SPF30", brand: "AVeeno", type: "moisturizer", description: "Lightweight moisturizer with SPF", price: 20, image: "https://images.ctfassets.net/mgaihfszrtka/vvr0wk0hI5gQcJQVjOKSP/50402247b305461b20434bab7922cc76/3oz_oobwb-min-en-us", skinTypeSuitable: ["all"]},
     {_id: "4", name: "Vitamin C Serum", brand: "BrightSkin", type: "serum", description: "Brightens skin and reduces dark spots", price: 25, image: "https://img-1.kwcdn.com/product/fancy/7e12ed5d-eaf3-4b08-b1ea-00a93739db0b.jpg?imageView2/2/w/1300/q/80/format/webp", skinTypeSuitable: ["all"]},
     {_id: "5", name: "Soothing Aloe Gel", brand: "NatureCare", type: "moisturizer", description: "Calms irritated skin", price: 10, image: "https://m.media-amazon.com/images/I/81uFftLRO1L._UF1000,1000_QL80_.jpg", skinTypeSuitable: ["sensitive"]},
     {_id: "6", name: "Exfoliating Scrub", brand: "FreshFace", type: "cleanser", description: "Removes dead skin cells gently", price: 18, image: "https://img.ltwebstatic.com/images3_spmp/2024/06/05/49/1717591395c59747eb25eb25aa1c0710a36c4118ed_thumbnail_384x.webp", skinTypeSuitable: ["all"]},
@@ -20,22 +20,11 @@ const initialState = {
     {_id: "14", name: "Anti-Aging Serum", brand: "BrightSkin", type: "serum", description: "Reduces fine lines and wrinkles", price: 35, image: "https://img-1.kwcdn.com/product/fancy/11c27f65-f3d2-4294-aa6e-78c4eb7c218c.jpg?imageView2/2/w/800/q/70/format/webp", skinTypeSuitable: ["all"]},
     {_id: "15", name: "Daily Moisturizer", brand: "Cetaphil", type: "moisturizer", description: "Keeps skin hydrated all day", price: 16, image: "https://m.media-amazon.com/images/I/61EIQGcD4eL._SL1500_.jpg", skinTypeSuitable: ["normal", "dry"]},
     {_id: "16", name: "Clay Mask", brand: "GlowSkin", type: "mask", description: "Absorbs excess oil and impurities", price: 23, image: "https://www.dotandkey.com/cdn/shop/products/5-Pink-Clay-Mask.jpg?v=1706167541", skinTypeSuitable: ["oily", "combination"]},
-
     {_id: "17", name: "Soothing Serum", brand: "The Ordinary", type: "serum", description: "Calms sensitive skin", price: 27, image: "https://static.sweetcare.com/img/prd/488/v-638494029185981965/the-ordinary-020102td_01.webp", skinTypeSuitable: ["sensitive"]},
     {_id: "18", name: "Gentle Cleanser", brand: "cetaphil", type: "cleanser", description: "Suitable for daily use", price: 13, image: "https://static.sweetcare.com/img/prd/488/v-638200520080481715/cetaphil-004512cc_02.webp", skinTypeSuitable: ["all"]},
-    {_id: "19", name: "Night Moisturizer", brand: "BrightSkin", type: "moisturizer", description: "Hydrates and repairs skin overnight", price: 24, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-    {_id: "20", name: "SPF30 Daily Sunblock", brand: "SunGuard", type: "sunblock", description: "Lightweight daily protection", price: 20, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-    {_id: "21", name: "Vitamin E Serum", brand: "BrightSkin", type: "serum", description: "Nourishes and protects skin", price: 26, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-    {_id: "22", name: "Purifying Clay Cleanser", brand: "GlowSkin", type: "cleanser", description: "Removes impurities and oil", price: 18, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily"]},
-    {_id: "23", name: "Revitalizing Face Mask", brand: "FreshFace", type: "mask", description: "Refreshes and energizes skin", price: 22, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["normal"]}, 
-    {_id: "24", name: "Hydrating Serum", brand: "NatureCare", type: "serum", description: "Deep hydration for dry skin", price: 28, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["dry"]},
-    {_id: "25", name: "Matte Face Powder", brand: "GlowSkin", type: "moisturizer", description: "Controls shine and hydrates lightly", price: 15, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["oily"]},
-    {_id: "26", name: "Soothing Cleanser", brand: "FreshFace", type: "cleanser", description: "Gentle on sensitive skin", price: 14, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["sensitive"]},
-    {_id: "27", name: "Brightening Moisturizer", brand: "BrightSkin", type: "moisturizer", description: "Evens skin tone", price: 21, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-    {_id: "28", name: "Exfoliating Face Mask", brand: "GlowSkin", type: "mask", description: "Removes dead skin gently", price: 20, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-    {_id: "29", name: "Repairing Night Serum", brand: "NatureCare", type: "serum", description: "Repairs and regenerates skin overnight", price: 32, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-    {_id: "30", name: "Daily Cleanser", brand: "FreshFace", type: "cleanser", description: "For all skin types, daily use", price: 12, image: "https://via.placeholder.com/300x200", skinTypeSuitable: ["all"]},
-
+    {_id: "20", name: "SPF30 Daily Sunblock", brand: "OSHEA", type: "sunblock", description: "Lightweight daily protection", price: 20, image: "https://www.osheaherbals.com/cdn/shop/files/UVShield-Sun-Block-Cream-SPF-30-120-GM-jpg_01.jpg?v=1752238328", skinTypeSuitable: ["all"]},
+    {_id: "21", name: "Vitamin E Serum", brand: "AOAZ", type: "serum", description: "Nourishes and protects skin", price: 26, image: "https://img-1.kwcdn.com/product/fancy/d9cf587e-3a31-4d12-9e7d-3b2969df96c4.jpg?imageView2/2/w/800/q/70/format/webp", skinTypeSuitable: ["all"]},
+  
 ]
 }
 
@@ -47,6 +36,12 @@ const productSlice = createSlice({
   reducers: {
     getProducts: (state) => state.products,
   },
+
+
+
+
+
+  
 });
 
 export const { getProducts } = productSlice.actions;

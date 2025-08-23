@@ -7,6 +7,7 @@ const Footer = () => {
         <p className="mb-0">
           &copy; {new Date().getFullYear()} Skin Care App. All Rights Reserved.
         </p>
+        <p>DESIGNED BY ENG:ASEEL HASAN QABBAHA</p>
       </div>
     </footer>
   );

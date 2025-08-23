@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Products = () => {
   const products = useSelector((state) => state.product.products);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-if (!products || products.length === 0) return <p>No products available</p>;
+
+  const queryParams = new URLSearchParams(location.search);
+  const searchTerm = queryParams.get("search") || "";
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container mt-4">
-       
-      <h2>All Products</h2>
+      <h2>Products</h2>
       <div className="row">
-        {products.map((product) => (
-          <div key={product.id} className="col-md-3 mb-3">
-            <div className="card h-70">
+        {filteredProducts.length === 0 && <p>No products found.</p>}
+        {filteredProducts.map((product) => (
+          <div key={product._id} className="col-md-4 mb-4">
+            <div className="card h-200">
               <img
                 src={product.image}
                 className="card-img-top"
@@ -22,20 +31,21 @@ if (!products || products.length === 0) return <p>No products available</p>;
               />
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">brand:{product.brand}</p>
-                <p className="card-text">price:${product.price}</p>
+                <p className="card-text"><strong>Brand:</strong> {product.brand}</p>
+                <p className="card-text"><strong>Price:</strong> ${product.price}</p>
                 <p className="card-text">
-                  Description:<strong>{product.description}</strong>
+                  Type: <strong>{product.description}</strong>
                 </p>
                 <p className="card-text">
                   Skin Suitable: {product.skinTypeSuitable.join(", ")}
                 </p>
-                <Link
-                  to={`/product/${product.id}`}
+
+                <button
                   className="btn btn-primary mt-2"
+                  onClick={() => navigate(`/products/${product._id}`)}
                 >
                   View Details
-                </Link>
+                </button>
               </div>
             </div>
           </div>
