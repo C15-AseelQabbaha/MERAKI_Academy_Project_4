@@ -1,10 +1,20 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import "./Navbar.css";
+
 const Navbar = () => {
+  const navigate = useNavigate();
+  const cartProducts = useSelector(state => state.cart.cartProducts);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div className="container">
+        <h3 style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+        
+        </h3>
+
         <Link className="navbar-brand" to="/">
           Skin Care
         </Link>
@@ -55,8 +65,31 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-      </div>
 
+      
+        <div
+          style={{ position: "relative", cursor: "pointer" }}
+          onClick={() => navigate("/cart")}
+        >
+          <FaShoppingCart size={24} />
+          {cartProducts.length > 0 && (
+            <span
+              style={{
+                position: "absolute",
+                top: "-8px",
+                right: "-8px",
+                background: "red",
+                color: "white",
+                borderRadius: "50%",
+                padding: "2px 6px",
+                fontSize: "12px",
+              }}
+            >
+              {cartProducts.length}
+            </span>
+          )}
+        </div>
+      </div>
     </nav>
   );
 };

@@ -21,7 +21,7 @@ const Products = () => {
       <div className="row">
         {filteredProducts.length === 0 && <p>No products found.</p>}
         {filteredProducts.map((product) => (
-          <div key={product._id} className="col-md-4 mb-4">
+          <div key={product._id} className="col-md-3 mb-3">
             <div className="card h-200">
               <img
                 src={product.image}

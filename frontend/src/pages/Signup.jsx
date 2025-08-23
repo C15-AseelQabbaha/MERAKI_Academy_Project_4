@@ -55,6 +55,16 @@ const Signup = () => {
         </button>
       </form>
       {error && <p className="text-danger mt-2">{error}</p>}
+      <p className="mt-2 text-center">
+  Already have an account?{" "}
+  <span 
+    className="text-primary" 
+    style={{ cursor: "pointer" }}
+    onClick={() => navigate("/login")}
+  >
+    Log In
+  </span>
+</p>
     </div>
   );
 };
