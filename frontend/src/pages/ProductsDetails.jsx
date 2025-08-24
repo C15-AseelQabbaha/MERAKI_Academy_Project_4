@@ -5,6 +5,8 @@ import { addToCart } from "../redux/CartSlice"
 const ProductsDetails = () => {
   const { id } = useParams();
     const dispatch = useDispatch();
+    
+
   const product = useSelector((state) =>
    state.product.products.find((p) => p._id === id)
   );
@@ -33,6 +35,7 @@ const ProductsDetails = () => {
           <button
             className="btn btn-primary mt-3 me-2"
             onClick={() => dispatch(addToCart(product))}
+            
           >
             Add to Cart
           </button>

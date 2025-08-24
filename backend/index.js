@@ -18,7 +18,7 @@ const productRouter=require("./routes/product")
 const articleRouter=require("./routes/article")
 const reviewRouter=require("./routes/review")
 const routineRouter=require("./routes/routine")
-
+const paymentRouter=require("./routes/payment")
 
 app.use("/users",userRouter)
 app.use("/role",roleRouter)
@@ -27,7 +27,7 @@ app.use("/article",articleRouter)
 app.use("/review",reviewRouter)
 app.use("/routine",routineRouter)
 
-
+app.use("/pay",paymentRouter)
 
 
 // Handles any other endpoints [unassigned - endpoints]
