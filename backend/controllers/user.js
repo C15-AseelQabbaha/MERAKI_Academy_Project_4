@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs")
+const bcryptjs = require("bcryptjs")
 
 
 const roleModel = require("../models/roleSchema")
@@ -94,11 +94,11 @@ const registerUser = async (req, res) => {
     }
 
     
-    const hashedPassword = await bcrypt.hash(password, 10);
+
     const newUser = new userModel({
       name,
-      email: email.toLowerCase(),
-      password: hashedPassword,
+      email: email,
+      password: password,
       age,
       skinType
     });
@@ -106,11 +106,7 @@ const registerUser = async (req, res) => {
     await newUser.save();
 
     
-    const token = jwt.sign(
-      { userId: newUser._id },
-      process.env.SECRET,
-      { expiresIn: "2h" }
-    );
+    
 
     res.status(201).json({
       success: true,
@@ -121,7 +117,7 @@ const registerUser = async (req, res) => {
         skinType: newUser.skinType,
         age: newUser.age
       },
-      token
+     
     });
   } catch (err) {
     console.log(err);
@@ -142,6 +138,8 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+  
+console.log(email,password);
 
     
     const user = await userModel.findOne({ email: email.toLowerCase() });
@@ -149,10 +147,17 @@ const loginUser = async (req, res) => {
       return res.status(404).json({ success: false, message: "User not found" });
     }
 
+   console.log(user.password);
    
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ success: false, message: "Invalid password" });
+    try{
+       const isMatch = await bcrypt.compare(password, user.password);
+     if (!isMatch) {
+       return res.status(400).json({ success: false, message: "Invalid password" });
+     }
+console.log("ismatch",isMatch);
+    }catch(err){
+      console.log("aseel");
+      
     }
 
    

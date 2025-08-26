@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     const resultAction = await dispatch(loginUser({ email, password }));
     if (loginUser.fulfilled.match(resultAction)) {
-      navigate("/home"); 
+      navigate("/"); 
     }
   };
 
