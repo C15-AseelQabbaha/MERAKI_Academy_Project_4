@@ -8,7 +8,7 @@ const CartPage = () => {
   const navigate = useNavigate();
  
   const totalPrice = cartProducts.reduce(
-    (total, product) => total + product.price * product.quantity,
+    (total, product) => total + product.price * (product.quantity||1),
     0
   );
 

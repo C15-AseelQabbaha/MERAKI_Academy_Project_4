@@ -7,12 +7,12 @@ name:{type:String},
 email:{type:String,required:true,unique:true},
 password:{type:String,required:true},
 age:{type:Number},
-skinType:{type:String,enum:["oily","dry","normal","sensetive","combination"]},
+skinType:{type:String,enum:["oily","dry","normal","sensitive","combination"]},
 role:{type:mongoose.Schema.Types.ObjectId,ref:"Role"},
 createdAt:{type:Date,default:Date.now}
 })
 
-userSchema.pre("save",async function(next){
+userSchema.pre("save",async function(){
     this.email=this.email.toLowerCase()
     if (this.isModified("password")) {  this.password=await bcrypt.hash(this.password,10)}
   

@@ -1,18 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const BASE_URL = "http://localhost:5000/pay";
 
-//
 export const createOrder = createAsyncThunk(
   "payment/createOrder",
-  async ({ userId, products, totalPrice, paymentMethod, token }, { rejectWithValue }) => {
+  async (orderData, { rejectWithValue }) => {
     try {
-      const res = await axios.post(
-        "/newOrder",
-        { userId, products, totalPrice, paymentMethod, status: "Pending" },
-        { baseURL: BASE_URL, headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.post(`${BASE_URL}/newOrder`, orderData);
       return res.data;
     } catch (err) {
       return rejectWithValue(err.response?.data || { message: "Order failed" });
@@ -22,7 +17,7 @@ export const createOrder = createAsyncThunk(
 
 const paymentSlice = createSlice({
   name: "payment",
-  initialState: { loading: false, error: null, order: null },
+  initialState: { orders: [], loading: false, error: null },
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -32,11 +27,11 @@ const paymentSlice = createSlice({
       })
       .addCase(createOrder.fulfilled, (state, action) => {
         state.loading = false;
-        state.order = action.payload.order;
+        state.orders.push(action.payload.order);
       })
       .addCase(createOrder.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload.message || "Order failed";
+        state.error = action.payload?.message || "Order failed";
       });
   },
 });

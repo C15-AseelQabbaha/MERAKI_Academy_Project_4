@@ -31,7 +31,18 @@ const Login = () => {
           {loading ? "Loading..." : "Login"}
         </button>
       </form>
-      {error && <p className="text-danger mt-2">{error}</p>}
+       {error && <p className="text-danger mt-2">{error}</p>}
+      <p className="mt-3 text-center">
+        New user?{" "}
+        <span
+          className="text-primary"
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate("/signup")}
+        >
+          Sign Up
+        </span>
+      </p>
+      
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/sharedComponents/Navbar";
 import Footer from "./components/sharedComponents/Footer";
 import CartPage from "./pages/CartPage";
+import Checkout from "./pages/Checkout"
 
 import Products from "./pages/Products";
 import ProductsDetails from "./pages/ProductsDetails";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductsDetails />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
       <Footer />
