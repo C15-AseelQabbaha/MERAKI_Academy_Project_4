@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000"; 
+const BASE_URL = "http://localhost:5000";
+
+// 
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async ({ name, email, password, age, skinType }, { rejectWithValue }) => {
@@ -20,6 +22,7 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+//
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ email, password }, { rejectWithValue }) => {
@@ -51,11 +54,11 @@ const authSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
+        state.user = action.payload?.user || null;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload.message || action.payload;
+        state.error = action.payload?.message || "Signup failed";
       })
 
       // login
@@ -65,13 +68,13 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        localStorage.setItem("token", action.payload.token);
+        state.user = action.payload?.user || null;
+        state.token = action.payload?.token || null;
+        if (action.payload?.token) localStorage.setItem("token", action.payload.token);
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload.message || action.payload;
+        state.error = action.payload?.message || "Login failed";
       });
   },
 });

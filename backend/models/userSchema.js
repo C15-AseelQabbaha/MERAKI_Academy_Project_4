@@ -12,9 +12,10 @@ role:{type:mongoose.Schema.Types.ObjectId,ref:"Role"},
 createdAt:{type:Date,default:Date.now}
 })
 
-userSchema.pre("save",async function(result){
+userSchema.pre("save",async function(next){
     this.email=this.email.toLowerCase()
-    this.password=await bcrypt.hash(this.password,10)
+    if (this.isModified("password")) {  this.password=await bcrypt.hash(this.password,10)}
+  
     
 })
 

@@ -29,7 +29,7 @@ res.status(201).json({
 
 const getAllOrder=async(req,res)=>{
 try{
-const order=paymentModel.find().populate("userId").populate("products.productId")
+const order= await paymentModel.find().populate("userId").populate("products.productId")
 
 res.json(order)
 

@@ -23,6 +23,7 @@ const signUp = async (req, res) => {
             success: true,
             message: "registreted successfully",
             user: {
+                id:newUser._id,
                 name: newUser.name,
                 email: newUser.email,
                 role: newUser.role
@@ -34,13 +35,19 @@ const signUp = async (req, res) => {
 
         res.status(500).json({ success: false, message: "error logging in", error: err.message })
     }
+
+
+
+
+
     // login fun
-    const login = async (req, res) => {
+}
+const login = async (req, res) => {
 
         try {
             const { email, password } = req.body
 
-            const user = await new userModel.findOne({ email }).populate("role")
+            const user = await  userModel.findOne({ email }).populate("role")
             if (!user) {
                 return res.status(404).json("user not found")
             }
@@ -56,7 +63,7 @@ const signUp = async (req, res) => {
 
             }
             const option = {
-                expressIn: "2h"
+                expriresIn: "2h"
             }
             const token = jwt.sign(payload, process.env.SECRET, option)
             res.status(200).json({
@@ -64,6 +71,7 @@ const signUp = async (req, res) => {
                 message: "login successful",
                 token,
                 user: {
+                    id:newUser._id,
                     name: user.name,
                     email: user.email,
                     role: user.role.role
@@ -80,7 +88,4 @@ const signUp = async (req, res) => {
         }
     }
 
-
-
-}
 module.exports = { signUp, login }

@@ -57,6 +57,14 @@ const CartPage = () => {
       >
         Back to Products
       </button>
+       {cartProducts.length > 0 && (
+            <button
+              className="btn btn-success mt-3 ms-2"
+              onClick={() => navigate("/checkout")}
+            >
+              Proceed to Checkout
+            </button>
+          )}
     </div>
   );
 };

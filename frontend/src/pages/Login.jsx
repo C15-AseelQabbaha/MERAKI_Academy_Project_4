@@ -21,6 +21,7 @@ const Login = () => {
   return (
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <h2>Login</h2>
+      
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Email" className="form-control mb-2"
           value={email} onChange={(e) => setEmail(e.target.value)} required />

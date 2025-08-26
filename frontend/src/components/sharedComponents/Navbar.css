@@ -9,7 +9,8 @@
 
 
 .navbar-brand {
-  font-size: 22px;
+  font-size: 30px !important;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
   font-weight: bold;
   color: #241e1e;
   text-decoration: none;

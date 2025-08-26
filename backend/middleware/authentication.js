@@ -8,7 +8,7 @@ module.exports = function (req, res, next) {
   const token = authHeader.split(" ")[1];
   try {
     const decoded = jwt.verify(token, process.env.SECRET);
-    req.token = decoded;
+    req.user = decoded;
     next();
   } catch (err) {
     res.status(403).json({ message: "Unauthorized" });
