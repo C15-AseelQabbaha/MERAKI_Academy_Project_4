@@ -12,7 +12,7 @@ const paymentSchema=new mongoose.Schema({
     totalPrice:{type:Number},
     paymentMethod:{
         type:String,
-        enum:["Credit Card","PayPal","Cash on Delivery"],
+        enum:["Cash on Delivery","Credit Card","PayPal"],
         required:true
     },
     status:{type:String, enum:["Pending","Paid","Shiped","Delivery"],required:true},

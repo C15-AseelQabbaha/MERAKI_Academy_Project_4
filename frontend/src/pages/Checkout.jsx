@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../redux/paymentSlice";
 import { clearCart } from "../redux/CartSlice";
+import "./Checkout.css"
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -18,8 +19,13 @@ const Checkout = () => {
     city: "",
     country: "",
     postalCode: "",
-    paymentMethod: "Credit Card",
+    paymentMethod: "Cash on Delivery",
+    cardNumber: "",
+    expiryDate: "",
+    cvv: "",
   });
+
+  const [message, setMessage] = useState("");
 
   const totalPrice = cartProducts.reduce(
     (total, product) => total + product.price * (product.quantity || 1),
@@ -31,6 +37,14 @@ const Checkout = () => {
   };
 
   const handleCheckout = async () => {
+    if (formData.paymentMethod === "Credit Card") {
+      if (!formData.cardNumber || !formData.expiryDate || !formData.cvv) {
+        setMessage("⚠️ Please fill in your credit card details.");
+        setTimeout(() => setMessage(""), 5000);
+        return;
+      }
+    }
+
     const productsData = cartProducts.map((p) => ({
       productId: p._id,
       quantity: p.quantity || 1,
@@ -52,19 +66,35 @@ const Checkout = () => {
             country: formData.country,
             postalCode: formData.postalCode,
           },
+          creditCardInfo:
+            formData.paymentMethod === "Credit Card"
+              ? {
+                  cardNumber: formData.cardNumber,
+                  expiryDate: formData.expiryDate,
+                  cvv: formData.cvv,
+                }
+              : null,
         })
       ).unwrap();
 
       dispatch(clearCart());
-      navigate("/products"); 
+      navigate("/products");
     } catch (err) {
       console.error(err);
+      setMessage("❌ Something went wrong. Please try again.");
+      setTimeout(() => setMessage(""), 5000);
     }
   };
 
   return (
     <div className="container mt-5" style={{ maxWidth: "600px" }}>
       <h2>Checkout</h2>
+
+      {message && (
+        <div className="alert alert-danger text-center" role="alert">
+          {message}
+        </div>
+      )}
 
       <div className="mb-3">
         <label className="form-label">Full Name</label>
@@ -163,6 +193,47 @@ const Checkout = () => {
           <option value="Cash on Delivery">Cash on Delivery</option>
         </select>
       </div>
+
+      {formData.paymentMethod === "Credit Card" && (
+        <>
+          <div className="mb-3">
+            <label className="form-label">Card Number</label>
+            <input
+              type="text"
+              name="cardNumber"
+              className="form-control"
+              value={formData.cardNumber}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Expiry Date</label>
+            <input
+              type="text"
+              name="expiryDate"
+              placeholder="MM/YY"
+              className="form-control"
+              value={formData.expiryDate}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">CVV</label>
+            <input
+              type="text"
+              name="cvv"
+              className="form-control"
+              value={formData.cvv}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </>
+      )}
 
       <h4>Total: ${totalPrice.toFixed(2)}</h4>
 

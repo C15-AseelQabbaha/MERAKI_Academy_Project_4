@@ -19,7 +19,11 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div className="container">
-      
+         {/* <img 
+        src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/skincare-%26-hair-free-logo-design-template-7570ef196bb39d2f49a2ac9bf7900df2_screen.jpg?ts=1710345189"
+        alt="App Logo" 
+        style={{ width: "100px",height: "20px", marginBottom: "20px" }} 
+      /> */}
         <Link className="navbar-brand" to="/">
           Skin Care
         </Link>
