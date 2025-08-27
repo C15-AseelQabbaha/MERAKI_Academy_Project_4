@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
-//import logo from "../assets/logo.png"; // ضيف اللوجو داخل مجلد assets
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5 d-flex flex-column align-items-center" style={{ maxWidth: "400px" }}>
+    <div className="container mt-5 d-flex flex-column align-items-center" style={{ maxWidth: "400px" }} >
       
       
       <img 

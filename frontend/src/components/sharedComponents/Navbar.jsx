@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../redux/authSlice"; // عدل المسار حسب مشروعك
+import { logout } from "../../redux/authSlice";
 import "./Navbar.css";
 
 const Navbar = () => {

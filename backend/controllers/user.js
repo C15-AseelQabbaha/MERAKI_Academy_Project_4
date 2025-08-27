@@ -1,4 +1,4 @@
-const bcryptjs = require("bcryptjs")
+const bcrypt = require("bcryptjs")
 
 
 const roleModel = require("../models/roleSchema")
