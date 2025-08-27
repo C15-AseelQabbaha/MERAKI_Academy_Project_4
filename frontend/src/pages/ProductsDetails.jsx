@@ -68,8 +68,13 @@ const ProductsDetails = () => {
           >
             Add to Cart
           </button>
-
-          <Link to="/products" className="btn btn-secondary mt-3">
+          <Link
+  to={`/review/${product._id}`}
+  className="btn btn-info mt-3 ms-2"
+>
+  View Reviews
+</Link>
+          <Link to="/products" className="btn btn-secondary mt-3 ms-3">
             Back to Products
           </Link>
         </div>

@@ -9,7 +9,7 @@ import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
 import ProductsDetails from "./pages/ProductsDetails";
-
+ import Reviews from "./pages/Review";
 // 
 function Layout() {
   const location = useLocation();
@@ -30,10 +30,14 @@ function Layout() {
           <Route path="/products/:id" element={<ProductsDetails />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/review/:productId" element={<Reviews />} />
         </Routes>
       </div>
 
        <Footer />
+    
+
+
     </>
   );
 }
