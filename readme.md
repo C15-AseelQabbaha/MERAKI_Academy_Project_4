@@ -29,7 +29,10 @@
 
 Write about 1-2 paragraphs describing the purpose of your project.
 
-Ex. Are you looking for a quick and easy way to action, action, and action? The **(name of application)** is the greatest and most accurate application to do this for you. It helps you to **(list of activities)**. The **(name of application)** provides a simple design to ensure having the best user experience.
+Are you looking for a quick and easy way to action, action, and action? The **(Skin Care App)** is the greatest and most accurate application to do this for you.
+The Skin Care App is designed to provide users with a simple and effective way to explore, choose, and manage their skincare routine. Whether you are looking for personalized product recommendations, browsing through trusted reviews, or learning about the best solutions for your skin type, this application makes it easy and accessible. With just a few clicks, users can discover products, add favorites, and track their skincare journey.
+
+The app focuses on offering a smooth and user-friendly experience with a clean design that ensures clarity and comfort while browsing. By combining essential skincare knowledge, product details, and personalized options in one place, the Skin Care App helps users make confident decisions about their skincare needs and maintain healthier, glowing skin.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
