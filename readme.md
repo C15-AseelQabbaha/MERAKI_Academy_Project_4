@@ -27,7 +27,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+
 
 Are you looking for a quick and easy way to action, action, and action? The **(Skin Care App)** is the greatest and most accurate application to do this for you.
 The Skin Care App is designed to provide users with a simple and effective way to explore, choose, and manage their skincare routine. Whether you are looking for personalized product recommendations, browsing through trusted reviews, or learning about the best solutions for your skin type, this application makes it easy and accessible. With just a few clicks, users can discover products, add favorites, and track their skincare journey.
