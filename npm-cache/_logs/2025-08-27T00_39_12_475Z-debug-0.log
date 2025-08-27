@@ -1,0 +1,36 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v22.17.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:D:\MERAKI_Academy\Projects\MERAKI_Academy_Project_4\.npmrc
+5 silly config load:file:C:\Users\LENOVO\.npmrc
+6 silly config load:file:C:\Users\LENOVO\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm init
+8 verbose argv "init" "--yes"
+9 verbose logfile logs-max:10 dir:D:\MERAKI_Academy\Projects\MERAKI_Academy_Project_4\npm-cache\_logs\2025-08-27T00_39_12_475Z-
+10 verbose logfile D:\MERAKI_Academy\Projects\MERAKI_Academy_Project_4\npm-cache\_logs\2025-08-27T00_39_12_475Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly package data {
+12 silly package data   name: 'meraki_academy_project_4',
+12 silly package data   version: '1.0.0',
+12 silly package data   description: '<p align="center">\r <a href="https://www.meraki-academy.org" target="_blank" rel="noopener noreferrer">\r  <img width="400px" height="100px" src="https://www.meraki-academy.org/assets/img/logov02.svg" alt="Project logo">\r  </a>\r </p>',
+12 silly package data   main: 'index.js',
+12 silly package data   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+12 silly package data   repository: {
+12 silly package data     type: 'git',
+12 silly package data     url: 'git+https://github.com/C15-AseelQabbaha/MERAKI_Academy_Project_4.git'
+12 silly package data   },
+12 silly package data   keywords: [],
+12 silly package data   author: '',
+12 silly package data   license: 'ISC',
+12 silly package data   bugs: {
+12 silly package data     url: 'https://github.com/C15-AseelQabbaha/MERAKI_Academy_Project_4/issues'
+12 silly package data   },
+12 silly package data   homepage: 'https://github.com/C15-AseelQabbaha/MERAKI_Academy_Project_4#readme'
+12 silly package data }
+13 verbose cwd D:\MERAKI_Academy\Projects\MERAKI_Academy_Project_4
+14 verbose os Windows_NT 10.0.19045
+15 verbose node v22.17.0
+16 verbose npm  v10.9.2
+17 verbose exit 0
+18 info ok

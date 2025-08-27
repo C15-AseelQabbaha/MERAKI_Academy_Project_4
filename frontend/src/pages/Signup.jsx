@@ -33,7 +33,7 @@ const Signup = () => {
       <img 
         src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/skincare-%26-hair-free-logo-design-template-7570ef196bb39d2f49a2ac9bf7900df2_screen.jpg?ts=1710345189"
         alt="App Logo" 
-        style={{ width: "220px", marginBottom: "20px" }} 
+        style={{ width: "260px", marginBottom: "20px" }} 
       />
       <h2 className="mb-4">Sign Up</h2>
       <form onSubmit={handleSubmit} style={{ textAlign: "left" }}>
